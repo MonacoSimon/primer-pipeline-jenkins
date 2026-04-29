@@ -15,10 +15,23 @@ pipeline {
     }
 
     stages {
+            stage('Setup') {
+                steps {
+                    sh '''
+                        if ! command -v node &> /dev/null; then
+                            curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+                            apt-get install -y nodejs
+                        fi
+                    '''
+                }
+        }
+        
         stage('Test') {
             steps {
-                sh "npm install"
-                sh "npx cypress run --spec cypress/e2e/${params.SPEC} --browser ${params.BROWSER}"
+                sh '''
+                    npm install
+                    npx cypress run --spec "cypress/e2e/${SPEC}" --browser ${BROWSER} --headless
+                '''
             }
         }
     }
