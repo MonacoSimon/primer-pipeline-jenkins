@@ -42,6 +42,6 @@ pipeline {
             reportFiles: 'index.html',
             reportName: 'HTML Report'
         ])
+        }
     }
-
 }
