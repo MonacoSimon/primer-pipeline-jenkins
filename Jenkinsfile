@@ -33,14 +33,15 @@ pipeline {
     }
 
     post {
-        always {
-            publishHTML([
-                allowMissing: true,
-                keepAll: true,
-                reportDir: 'cypress/reports',
-                reportFiles: 'index.html',
-                reportName: 'HTML Report'
-            ])
-        }
+    always {
+        publishHTML([
+            allowMissing: true,
+            alwaysLinkToLastBuild: false,   // 🔥 ESTE ES EL QUE FALTA
+            keepAll: true,
+            reportDir: 'cypress/reports',
+            reportFiles: 'index.html',
+            reportName: 'HTML Report'
+        ])
     }
+
 }
