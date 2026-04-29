@@ -11,6 +11,12 @@ pipeline {
     }
 
     stages {
+        stage('instalacion'){
+            steps{
+                echo "instalando dependencias"
+                sh 'npm install'
+            }
+        }
 
         stage('building') {
             steps {
