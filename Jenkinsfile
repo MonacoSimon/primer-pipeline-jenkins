@@ -11,12 +11,21 @@ pipeline {
     }
 
     stages {
-        stage('instalacion'){
-            steps{
-                sh 'npm ci'
+        stage('Setup') {
+            steps {
+                sh '''
+                    curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+                    apt-get install -y nodejs
+                '''
             }
         }
 
+        stage('Test') {
+            steps {
+                sh 'npm install'
+                sh 'npx cypress run'
+            }
+        }
         stage('building') {
             steps {
                 echo "construyendo la aplicación"
