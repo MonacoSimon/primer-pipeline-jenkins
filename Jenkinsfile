@@ -37,6 +37,7 @@ pipeline {
             publishHTML([
                 allowMissing: true,
                 keepAll: true,
+                alwaysLinkToLastBuild: true,
                 reportDir: 'cypress/reports',
                 reportFiles: 'index.html',
                 reportName: 'HTML Report'
