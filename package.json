@@ -1,0 +1,23 @@
+{
+  "name": "primer-pipeline-jenkins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonacoSimon/primer-pipeline-jenkins.git"
+  },
+  "author": "simon monaco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MonacoSimon/primer-pipeline-jenkins/issues"
+  },
+  "homepage": "https://github.com/MonacoSimon/primer-pipeline-jenkins#readme",
+  "devDependencies": {
+    "cypress": "^15.14.1"
+  }
+}
