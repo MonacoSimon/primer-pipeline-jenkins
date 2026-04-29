@@ -70,21 +70,16 @@ pipeline {
             }
         }
 
-        stage('Install deps') {
-            steps {
-                sh 'npm install'
-            }
-        }
-
         stage('Testing (Docker Cypress)') {
             steps {
                 script {
                     docker.image('cypress/included:13.7.0').inside {
-                        sh """
+                        sh '''
+                        npm install
                         npx cypress run \
-                        --spec cypress/e2e/${params.SPEC} \
-                        --browser ${params.BROWSER}
-                        """
+                        --spec cypress/e2e/${SPEC} \
+                        --browser ${BROWSER}
+                        '''
                     }
                 }
             }
